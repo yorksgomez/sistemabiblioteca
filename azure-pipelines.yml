@@ -9,42 +9,44 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-jobs:
-- job: Build
-  displayName: Build Maven Project
-  steps:
-  - task: Maven@3
-    displayName: 'Maven Package'
-    inputs:
-      mavenPomFile: 'pom.xml'
-  - task: CopyFiles@2
-    displayName: 'Copy Files to artifact staging directory'
-    inputs:
-      SourceFolder: '$(System.DefaultWorkingDirectory)'
-      Contents: '**/target/*.?(war|jar)'
-      TargetFolder: $(Build.ArtifactStagingDirectory)
-  - upload: $(Build.ArtifactStagingDirectory)
-    artifact: drop
-- deployment: VMDeploy
-  displayName: web
-  environment:
-    name:  Server
-    resourceType: VirtualMachine
-    tags: web
-  strategy:
-      runOnce:
-        preDeploy:
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:  
+  - job: Build
+    displayName: Build Maven Project
+    steps:
+    - task: Maven@4
+      displayName: 'Maven Package'
+      inputs:
+        mavenPomFile: 'pom.xml'
+    - task: CopyFiles@2
+      displayName: 'Copy Files to artifact staging directory'
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: '**/target/*.?(war|jar)'
+        TargetFolder: $(Build.ArtifactStagingDirectory)
+    - upload: $(Build.ArtifactStagingDirectory)
+      artifact: drop
+  - deployment: VMDeploy
+    displayName: web
+    environment:
+      name: Server
+      resourceType: VirtualMachine
+    strategy:
+        rolling:
+          maxParallel: 2  #for percentages, mention as x%
+          preDeploy:
             steps:
             - download: current
               artifact: drop
             - script: echo initialize, cleanup, backup, install certs
-        deploy:
-          steps:
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: |
-                # Modify deployment script based on the app type
-                echo "Starting deployment script run"
-                sudo java -jar '$(Pipeline.Workspace)/drop/**/target/*.war'
-  
+          deploy:
+            steps:
+            - task: Bash@3
+              inputs:
+                targetType: 'inline'
+                script: |
+                  # Modify deployment script based on the app type
+                  echo "Starting deployment script run"
+                  sudo java -jar '$(Pipeline.Workspace)/drop/**/target/*.jar'
