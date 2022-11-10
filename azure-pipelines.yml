@@ -51,4 +51,4 @@ stages:
               script: |
                 # Modify deployment script based on the app type
                 echo "Starting deployment script run"
-                sudo java -jar '$(Pipeline.Workspace)/drop/**/target/*.war'
+                sudo java -jar '$(Pipeline.Workspace)/drop/target/SistemaBiblioteca-0.0.1-SNAPSHOT.war'
