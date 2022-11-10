@@ -9,14 +9,25 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: Maven@4
-  inputs:
-    mavenPomFile: 'pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
+jobs:
+- job: Build
+  displayName: Build Maven Project
+  steps:
+  - task: Maven@3
+    displayName: 'Maven Package'
+    inputs:
+      mavenPomFile: 'pom.xml'
+  - task: CopyFiles@2
+    displayName: 'Copy Files to artifact staging directory'
+    inputs:
+      SourceFolder: '$(System.DefaultWorkingDirectory)'
+      Contents: '**/target/*.?(war|jar)'
+      TargetFolder: $(Build.ArtifactStagingDirectory)
+  - upload: $(Build.ArtifactStagingDirectory)
+    artifact: drop
+- deployment: VMDeploy
+  displayName: web
+  environment:
+    name:  Server
+    resourceType: VirtualMachine
+    tags: web
