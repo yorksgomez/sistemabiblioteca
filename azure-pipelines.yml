@@ -35,4 +35,11 @@ jobs:
       runOnce:
         deploy:
           steps:
-          - script: echo my first deployment
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: |
+                # Modify deployment script based on the app type
+                echo "Starting deployment script run"
+                sudo java -jar '$(Pipeline.Workspace)/drop/**/target/*.jar'
+  
