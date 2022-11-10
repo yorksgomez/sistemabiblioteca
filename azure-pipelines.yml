@@ -51,4 +51,4 @@ stages:
               script: |
                 # Modify deployment script based on the app type
                 echo "Starting deployment script run"
-                sudo mv '$(Pipeline.Workspace)/drop/target/ROOT.war' /var/lib/tomcat9/webapps/ROOT.war && systemctl restart tomcat9
+                sudo mv '$(Pipeline.Workspace)/drop/target/ROOT.war' /var/lib/tomcat9/webapps/ROOT.war && sudo systemctl restart tomcat9
