@@ -28,25 +28,27 @@ stages:
         TargetFolder: $(Build.ArtifactStagingDirectory)
     - upload: $(Build.ArtifactStagingDirectory)
       artifact: drop
+- stage: Deployment
+  displayName: Deploy stage
+  jobs:
   - deployment: VMDeploy
-    displayName: web
+    displayName: Web deploy
     environment:
       name: Server
       resourceType: VirtualMachine
     strategy:
-        rolling:
-          maxParallel: 2  #for percentages, mention as x%
-          preDeploy:
-            steps:
-            - download: current
-              artifact: drop
-            - script: echo initialize, cleanup, backup, install certs
-          deploy:
-            steps:
-            - task: Bash@3
-              inputs:
-                targetType: 'inline'
-                script: |
-                  # Modify deployment script based on the app type
-                  echo "Starting deployment script run"
-                  sudo java -jar '$(Pipeline.Workspace)/drop/**/target/*.jar'
+      runOnce:
+        preDeploy:
+          steps:
+          - download: current
+            artifact: drop
+          - script: echo initialize, cleanup, backup, install certs
+        deploy:
+          steps:
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: |
+                # Modify deployment script based on the app type
+                echo "Starting deployment script run"
+                sudo java -jar '$(Pipeline.Workspace)/drop/**/target/*.war'
