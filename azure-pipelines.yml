@@ -45,10 +45,11 @@ stages:
           - script: echo initialize, cleanup, backup, install certs
         deploy:
           steps:
-          - task: Bash@3
+          - task: TomcatDeployment@1
             inputs:
-              targetType: 'inline'
-              script: |
-                # Modify deployment script based on the app type
-                echo "Starting deployment script run"
-                sudo java -jar '$(Pipeline.Workspace)/drop/target/SistemaBiblioteca-0.0.1-SNAPSHOT.war'
+              TomcatUrl: 'http://localhost:8080'
+              Username: 'admin'
+              Password: 'admin'
+              Warfile: '$(Pipeline.Workspace)/drop/target/SistemaBiblioteca-0.0.1-SNAPSHOT.war'
+              Context: '/'
+              ServerVersion: '7OrAbove'
