@@ -17,7 +17,7 @@ public class SistemaBibliotecaApplication {
 	
 	@GetMapping("/hello")
 	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return String.format("Hello test 1: %s!", name);
+		return String.format("Hello test 2: %s!", name);
 	}
 
 }
