@@ -17,10 +17,7 @@ public class BookController {
     @Resource(name = "bookService")
     private BookServiceImplementation service;
 
-    @Autowired
-    private DataSource dataSource;
-
-    @GetMapping("/books")
+    @GetMapping("/login")
     public String view(Model model) {
 
         /*
@@ -30,11 +27,9 @@ public class BookController {
             service.addBook(new Book(1l, "TITULO LIBRO DE PRUEBO", "AUTOR DE PRUEBA"));
         }catch(Exception ex) {System.out.println("Mensaje: " + ex.getMessage());}
         
-        System.out.println("DATASOURCE: " + DataSourceUtils.getConnection(dataSource).toString());
-        
         Book book = service.find(1l);
         model.addAttribute("book", book);
-        return "books";
+        return "login";
     }
 
 }
