@@ -1,4 +1,4 @@
-package edu.eci.cvds.SistemaBiblioteca.servicesDao.dao;
+package edu.eci.cvds.SistemaBiblioteca.servicesExc.persistence;
 
 
 public class PersistenceException extends Exception{
