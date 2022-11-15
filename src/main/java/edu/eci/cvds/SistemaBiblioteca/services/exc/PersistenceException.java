@@ -1,4 +1,4 @@
-package edu.eci.cvds.SistemaBiblioteca.servicesExc.persistence;
+package edu.eci.cvds.SistemaBiblioteca.services.exc;
 
 
 public class PersistenceException extends Exception{
