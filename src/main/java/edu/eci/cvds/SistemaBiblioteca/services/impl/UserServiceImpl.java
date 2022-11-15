@@ -13,15 +13,14 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository repository;
 
-
-
     @Override
-    public void userRegistry(User u) {
-
+    public void register(User user) {
+        repository.save(user);
     }
 
     @Override
-    public User consultUserByMail(String mail) {
-        return null;
+    public User login(String mail, String password) {
+        User user = repository.findByMailAndPassword(mail, password);
+        return user;
     }
 }

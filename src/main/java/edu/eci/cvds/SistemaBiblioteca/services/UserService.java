@@ -4,7 +4,8 @@ import edu.eci.cvds.SistemaBiblioteca.model.User;
 
 
 public interface UserService{
-    void userRegistry(User u);
 
-    User consultUserByMail(String mail);
+    void register(User user);
+
+    User login(String mail, String password);
 }
