@@ -10,14 +10,14 @@
   <body>
     <div class="login_form">
         <h1>Log In</h1>
-        <form method="post">
+        <form method="post" th:object="${user}" th:action="@{/login/check}">
             <div class="mail">
                 <label>Mail</label>
-                <input type="text" required placeholder="someone@example.com">
+                <input type="email" required placeholder="someone@example.com" th:field="*{mail}">
             </div>
             <div class="mail">
                 <label>Password</label>
-                <input type="password" required placeholder="Enter Password">
+                <input type="password" required placeholder="Enter Password" th:field="*{password}">
             </div>
             <input type="submit" value="Log In">
         </form>

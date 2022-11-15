@@ -17,7 +17,7 @@ public class BookController {
     @Resource(name = "bookService")
     private BookServiceImplementation service;
 
-    @GetMapping("/login")
+    @GetMapping("/books")
     public String view(Model model) {
 
         /*
@@ -30,7 +30,7 @@ public class BookController {
         
         Book book = service.find(1l);
         model.addAttribute("book", book);
-        return "login";
+        return "books";
     }
 
 }
