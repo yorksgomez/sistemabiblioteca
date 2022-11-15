@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link th:href="@{/styles/login.css}" rel="stylesheet" />
+    <link th:href="@{/styles/style.css}" rel="stylesheet" />
     <title>Register</title>
   </head>
   <body>
@@ -13,7 +13,7 @@
         <form method="post" th:action="@{/proccess_register}" th:object="${user}">
             <div class="mail">
                 <label>Mail</label>
-                <input type="text" th:field="*{mail}" required placeholder="someone@example.com">
+                <input type="email" th:field="*{mail}" required placeholder="someone@example.com">
             </div>
             <div class="mail">
                 <label>Password</label>
@@ -21,9 +21,9 @@
             </div>
             <div class="mail">
               <label>Full Name</label>
-              <input type="password" th:field="*{name}" required placeholder="Enter your full name">
+              <input type="text" th:field="*{name}" required placeholder="Enter your full name">
             </div>
-            <input type="submit" th:field="*{name}" value="Log In">
+            <input type="submit" value="Register">
         </form>
     </div>
   </body>

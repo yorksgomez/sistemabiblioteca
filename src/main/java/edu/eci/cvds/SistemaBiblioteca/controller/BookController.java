@@ -19,17 +19,6 @@ public class BookController {
 
     @GetMapping("/books")
     public String view(Model model) {
-
-        /*
-         * Create a test book, as an example, it creates it the first time you run the page,
-         * and the next times it will show an error by console because it already exists.
-         */
-        try{
-            service.addBook(new Book(1l, "TITULO LIBRO DE PRUEBO", "AUTOR DE PRUEBA"));
-        }catch(Exception ex) {System.out.println("Mensaje: " + ex.getMessage());}
-        
-        Book book = service.find(1l);
-        model.addAttribute("book", book);
         return "books";
     }
 

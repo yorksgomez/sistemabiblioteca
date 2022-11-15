@@ -18,6 +18,12 @@ public class UserController {
     @Resource(name = "userService")
     private UserServiceImpl service;
 
+    @GetMapping("/login")
+    public String loginView(Model model) {
+        model.addAttribute("user", new User());
+        return "login";
+    }
+
     @GetMapping("/register")
     public String registerView(Model model) {
         model.addAttribute("user", new User());
