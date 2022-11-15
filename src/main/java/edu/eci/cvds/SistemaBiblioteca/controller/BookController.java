@@ -21,7 +21,8 @@ public class BookController {
     public String view(Model model) {
 
         /*
-         * Crea un libro de prueba, es como ejemplo, lo crea la primera vez que ejecuta la página, y las próximas veces mostrará un error por consola porque ya existe
+         * Create a test book, as an example, it creates it the first time you run the page,
+         * and the next times it will show an error by console because it already exists.
          */
         try{
             service.addBook(new Book(1l, "TITULO LIBRO DE PRUEBO", "AUTOR DE PRUEBA"));
