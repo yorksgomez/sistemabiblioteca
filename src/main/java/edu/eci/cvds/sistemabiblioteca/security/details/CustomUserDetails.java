@@ -1,11 +1,12 @@
-package edu.eci.cvds.SistemaBiblioteca.security.details;
+package edu.eci.cvds.sistemabiblioteca.security.details;
 
 import java.util.Collection;
+import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import edu.eci.cvds.SistemaBiblioteca.model.User;
+import edu.eci.cvds.sistemabiblioteca.model.User;
 
 public class CustomUserDetails implements UserDetails {
 
@@ -17,7 +18,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.emptyList();
     }
 
     @Override

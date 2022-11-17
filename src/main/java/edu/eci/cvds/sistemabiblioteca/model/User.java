@@ -1,4 +1,4 @@
-package edu.eci.cvds.SistemaBiblioteca.model;
+package edu.eci.cvds.sistemabiblioteca.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

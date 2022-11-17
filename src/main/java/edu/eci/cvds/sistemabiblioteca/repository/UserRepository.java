@@ -1,7 +1,7 @@
-package edu.eci.cvds.SistemaBiblioteca.repository;
+package edu.eci.cvds.sistemabiblioteca.repository;
 
 
-import edu.eci.cvds.SistemaBiblioteca.model.User;
+import edu.eci.cvds.sistemabiblioteca.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

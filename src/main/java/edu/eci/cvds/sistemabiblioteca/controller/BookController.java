@@ -1,15 +1,11 @@
-package edu.eci.cvds.SistemaBiblioteca.controller;
+package edu.eci.cvds.sistemabiblioteca.controller;
 
-import javax.sql.DataSource;
 import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import edu.eci.cvds.SistemaBiblioteca.model.Book;
-import edu.eci.cvds.SistemaBiblioteca.services.impl.BookServiceImplementation;
+import edu.eci.cvds.sistemabiblioteca.services.impl.BookServiceImplementation;
 
 @Controller
 public class BookController {
