@@ -1,4 +1,7 @@
-package edu.eci.cvds.SistemaBiblioteca.controller;
+package edu.eci.cvds.sistemabiblioteca.controller;
+
+import edu.eci.cvds.sistemabiblioteca.model.LibraryResource;
+import edu.eci.cvds.sistemabiblioteca.services.impl.ResourceServiceImpl;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +13,11 @@ import javax.annotation.Resource;
 public class ResourceController {
 
     @Resource (name = "resourceService")
-    private ResourceServiceImplementation resourceService;
+    private ResourceServiceImpl resourceService;
 
     @GetMapping("/resource")
     public String viewResource(Model model){
-        model.addAttribute("resource", new Resource());
+        model.addAttribute("resource", new LibraryResource());
         return "resource";
     }
 }
