@@ -1,15 +1,12 @@
-package edu.eci.cvds.SistemaBiblioteca;
-
-import javax.persistence.Entity;
+package edu.eci.cvds.sistemabiblioteca;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EnableJpaRepositories("edu.eci.cvds.SistemaBiblioteca.repository") 
-@EntityScan("edu.eci.cvds.SistemaBiblioteca.model")
+@EnableJpaRepositories("edu.eci.cvds.sistemabiblioteca.repository")
+@EntityScan("edu.eci.cvds.sistemabiblioteca.model")
 @SpringBootApplication()
 public class SistemaBibliotecaApplication {
 

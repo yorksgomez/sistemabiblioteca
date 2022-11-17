@@ -1,4 +1,4 @@
-package edu.eci.cvds.SistemaBiblioteca.security;
+package edu.eci.cvds.sistemabiblioteca.security;
  
 import javax.sql.DataSource;
  
@@ -13,14 +13,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import edu.eci.cvds.SistemaBiblioteca.security.details.CustomUserDetailsService;
+import edu.eci.cvds.sistemabiblioteca.security.details.CustomUserDetailsService;
  
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
-     
+
+    @Override
     @Bean
     public UserDetailsService userDetailsService() {
         return new CustomUserDetailsService();

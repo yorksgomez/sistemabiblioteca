@@ -1,12 +1,12 @@
-package edu.eci.cvds.SistemaBiblioteca.security.details;
+package edu.eci.cvds.sistemabiblioteca.security.details;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import edu.eci.cvds.SistemaBiblioteca.model.User;
-import edu.eci.cvds.SistemaBiblioteca.repository.UserRepository;
+import edu.eci.cvds.sistemabiblioteca.model.User;
+import edu.eci.cvds.sistemabiblioteca.repository.UserRepository;
 
 public class CustomUserDetailsService implements UserDetailsService {
 

@@ -1,7 +1,7 @@
-package edu.eci.cvds.SistemaBiblioteca.controller;
+package edu.eci.cvds.sistemabiblioteca.controller;
 
-import edu.eci.cvds.SistemaBiblioteca.model.User;
-import edu.eci.cvds.SistemaBiblioteca.services.impl.UserServiceImpl;
+import edu.eci.cvds.sistemabiblioteca.model.User;
+import edu.eci.cvds.sistemabiblioteca.services.impl.UserServiceImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -29,12 +29,12 @@ public class UserController {
         return "register";
     }
 
-    @PostMapping("/proccess_register")
+    @PostMapping("/process_register")
     public String processRegister(User user) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
-        user.setRole("COMUNITY");
+        user.setRole("COMMUNITY");
 
         service.register(user);
         
