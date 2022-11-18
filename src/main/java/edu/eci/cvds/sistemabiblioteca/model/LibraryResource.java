@@ -8,24 +8,24 @@ import javax.persistence.Id;
 
 @Entity
 public class LibraryResource {
-    // To be implemented
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
-    private String nombre;
+    private String name;
 
     @Column
-    private String ubicacion;
+    private String location;
 
     @Column
-    private String tipo;
+    private String type;
 
     @Column
-    private Integer capacidad;
+    private Integer capacity;
 
     @Column
-    private String disponibilidad;
+    private String availability;
 
 }
