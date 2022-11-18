@@ -16,10 +16,10 @@ stages:
   - job: Build
     displayName: Build Maven Project
     steps:
-    - task: Maven@4
-      displayName: 'Maven Package'
+    - task: Bash@3
       inputs:
-        mavenPomFile: 'pom.xml'
+        targetType: 'inline'
+        script: '$(System.DefaultWorkingDirectory)/mvnw package'
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
       inputs:
