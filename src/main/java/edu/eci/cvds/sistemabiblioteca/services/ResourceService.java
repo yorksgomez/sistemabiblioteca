@@ -2,8 +2,10 @@ package edu.eci.cvds.sistemabiblioteca.services;
 
 import edu.eci.cvds.sistemabiblioteca.model.LibraryResource;
 
-public interface ResourceService {
-    void findResource(LibraryResource libraryResource);
+import java.util.List;
 
-    void findResource(LibraryResource libraryResource, String[] filters);
+public interface ResourceService {
+    List<LibraryResource> findResource(LibraryResource libraryResource);
+
+    List<LibraryResource> findResource(LibraryResource libraryResource, String[] filters);
 }
