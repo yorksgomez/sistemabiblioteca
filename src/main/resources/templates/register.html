@@ -10,10 +10,11 @@
   <body>
     <div class="login_form">
         <h1>Register</h1>
-        <form method="post" th:action="@{/proccess_register}" th:object="${user}">
+        <form method="post" th:action="@{/process_register}" th:object="${user}">
             <div class="mail">
                 <label>Mail</label>
-                <input type="email" th:field="*{mail}" required placeholder="someone@example.com">
+                <input type="email" th:field="*{mail}" placeholder="someone@example.com"
+                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
             </div>
             <div class="mail">
                 <label>Password</label>
