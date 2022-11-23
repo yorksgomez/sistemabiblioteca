@@ -13,32 +13,37 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ResourceRepositoryImpl {
+
     @PersistenceContext
     private EntityManager entityManager;
 
-    List<LibraryResource> getData(HashMap<String, Object> filters) {
-        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<LibraryResource> query = criteriaBuilder.createQuery(LibraryResource.class);
+    public List<LibraryResource> getData(HashMap<String, Object> conditions)
+    {
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<LibraryResource> query = cb.createQuery(LibraryResource.class);
         Root<LibraryResource> root = query.from(LibraryResource.class);
 
         List<Predicate> predicates = new ArrayList<>();
-        filters.forEach((field, value) ->
+        conditions.forEach((field,value) ->
         {
-            switch (field) {
-                case "capacity":
-                    predicates.add(criteriaBuilder.equal(root.get(field), value));
-                    break;
+            switch (field)
+            {
                 case "name":
-                case "location":
                 case "type":
-                    assert value instanceof String;
-                    predicates.add(criteriaBuilder.like(root.get(field), "%"+(String)value+"%"));
+                case "location":
+                    predicates.add(cb.like(root.get(field),"%"+(String)value+"%"));
+                    break;
+                case "capacity":
+                    predicates.add(cb.equal(root.get(field), value));
                     break;
                 default:
-                    System.out.println("No Filter");
+                    System.out.println("Error");
             }
+
         });
+
         query.select(root).where(predicates.toArray(new Predicate[predicates.size()]));
+
         return entityManager.createQuery(query).getResultList();
     }
 }

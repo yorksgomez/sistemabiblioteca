@@ -22,6 +22,20 @@ public class LibraryResource {
     @Column
     private String type;
 
+    @Column
+    private Integer capacity;
+
+    @Column
+    private String availability;
+
+    public LibraryResource() {
+        this.name = "";
+        this.location = "";
+        this.type = "";
+        this.capacity = -1;
+        this.availability = "";
+    }
+
     public Long getId() {
         return id;
     }
@@ -69,11 +83,4 @@ public class LibraryResource {
     public void setAvailability(String availability) {
         this.availability = availability;
     }
-
-    @Column
-    private Integer capacity;
-
-    @Column
-    private String availability;
-
 }
