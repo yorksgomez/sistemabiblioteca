@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ResourceService {
     List<LibraryResource> findResource( HashMap<String, Object> libraryResourceSearched);
+
 }
