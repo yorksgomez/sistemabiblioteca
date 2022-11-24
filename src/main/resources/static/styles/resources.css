@@ -172,7 +172,7 @@ h2{
   transform: translate(-50%, -50%);
   margin-left:715px;
 }
-}
+
 ul {
   margin: 0;
   padding: 0;
@@ -250,15 +250,14 @@ a {
 		display: flex;
 	}
 	.header {
-		flex-direction: column;
-		align-items: center;
+        flex-direction: column;
+        align-items: center;
+    }
     	.header{
 		width: 80%;
 		margin: 0 auto;
 		max-width: 1150px;
 	}
-	}
-
 }
 
 @media (min-width: 1025px) {

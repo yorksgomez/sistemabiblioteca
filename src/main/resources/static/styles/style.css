@@ -71,6 +71,11 @@ input[type="submit"]{
     outline: none;
 }
 
+input[type="submit"]:hover {
+    background: violet;
+    transition: .5s;
+}
+
 input[type="submit"]:hover, button:hover {
     background: #3498DB;
     transition: .5s;
