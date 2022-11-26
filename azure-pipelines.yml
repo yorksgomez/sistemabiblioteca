@@ -16,25 +16,17 @@ stages:
   - job: Build
     displayName: Build Maven Project
     steps:
-    - task: SonarCloudPrepare@1
+    - task: Maven@4
       inputs:
-        SonarCloud: 'sonar'
-        organization: 'yorksgomez'
-        scannerMode: 'Other'
-        extraProperties: |
-          # Additional properties that will be passed to the scanner,
-          # Put one key=value per line, example:
-          # sonar.exclusions=**/*.bin
-          sonar.projectKey=yorksgomez_Sistema-Biblioteca-SCRUM
-          sonar.projectName=Sistema Biblioteca SCRUM
-    - task: Bash@3
-      inputs:
-        targetType: 'inline'
-        script: '$(System.DefaultWorkingDirectory)/mvnw package'
-    - task: SonarCloudAnalyze@1
-    - task: SonarCloudPublish@1
-      inputs:
-        pollingTimeoutSec: '300'
+        mavenPomFile: 'pom.xml'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        mavenVersionOption: 'Default'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: true
+        sqMavenPluginVersionChoice: 'latest'
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
       inputs:
