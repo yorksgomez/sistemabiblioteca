@@ -6,6 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface ResourceService {
-    List<LibraryResource> findResource( HashMap<String, Object> libraryResourceSearched);
+    List<LibraryResource> findResource( LibraryResource libraryResourceSearched);
 
 }
