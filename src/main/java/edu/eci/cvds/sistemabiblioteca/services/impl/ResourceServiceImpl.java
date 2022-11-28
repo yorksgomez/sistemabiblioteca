@@ -16,8 +16,29 @@ public class ResourceServiceImpl implements ResourceService {
     ResourceRepository resourceRepository;
 
     @Override
-    public List<LibraryResource> findResource(HashMap<String, Object> libraryResourceSearched) {
-        return resourceRepository.getData(libraryResourceSearched);
+    public List<LibraryResource> findResource(LibraryResource libraryResourceSearched) {
+        HashMap<String, Object> data = filtersMap(libraryResourceSearched);
+        return resourceRepository.getData(data);
+    }
+
+    private HashMap<String, Object> filtersMap(LibraryResource libraryResource) {
+        HashMap<String, Object> data = new HashMap<>();
+
+        String resourceName = libraryResource.getName();
+        String resourceLocation = libraryResource.getLocation();
+        String resourceType = libraryResource.getType();
+        int resourceCapacity = libraryResource.getCapacity();
+
+        if (!resourceName.equals(""))
+            data.put("name", resourceName);
+        if (!resourceLocation.equals(""))
+            data.put("location", resourceLocation);
+        if (!resourceType.equals(""))
+            data.put("type", resourceType);
+        if (resourceCapacity != -1) {
+            data.put("capacity", resourceCapacity);
+        }
+        return data;
     }
 
 }

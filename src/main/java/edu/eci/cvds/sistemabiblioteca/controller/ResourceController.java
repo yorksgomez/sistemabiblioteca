@@ -32,24 +32,7 @@ public class ResourceController {
     }
     @PostMapping("/getResource")
     public List<LibraryResource> getResource(LibraryResource libraryResource){
-        HashMap<String, Object> data = new HashMap<>();
-
-        String resourceName = libraryResource.getName();
-        String resourceLocation = libraryResource.getLocation();
-        String resourceType = libraryResource.getType();
-        int resourceCapacity = libraryResource.getCapacity();
-
-        if (!resourceName.equals(""))
-            data.put("name", resourceName);
-        if (!resourceLocation.equals(""))
-            data.put("location", resourceLocation);
-        if (!resourceType.equals(""))
-            data.put("type", resourceType);
-        if (resourceCapacity != -1) {
-            data.put("capacity", resourceCapacity);
-        }
-
-        return resourceService.findResource(data);
+        return resourceService.findResource(libraryResource);
     }
 
 }
