@@ -35,4 +35,10 @@ public class ResourceController {
         return resourceService.findResource(libraryResource);
     }
 
+    @GetMapping()
+    public String viewAddResource(Model model){
+        model.addAttribute("newResource", new LibraryResource());
+        return "";
+    }
+
 }
