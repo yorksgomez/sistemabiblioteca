@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link th:href="@{/styles/registerResource.css}" rel="stylesheet" />
+    <title>registerResource</title>
+</head>
+<body>
+<div class="registerResource_form">
+  <h1>Register Resource</h1>
+  <form method="post" th:action="@{/process_register_resource}" th:object="${administrator}">
+    <div class="form_register">
+      <label>Name</label>
+      <input type="text" th:field="*{name}" required placeholder="Enter resource name">
+    </div>
+
+    <div class="form_register">
+      <label>Capacity</label>
+      <input type="number" th:field="*{capacity}" required placeholder="Enter resource capacity">
+    </div>
+
+    <div class="form_register_list">
+      <label>Type</label>
+      <span class="input type"><i class="type options" th:field="*{type}"></i></span>
+      <select name="type" class="input type">
+        <option value=" ">Select your resource type</option>
+        <option>Study room</option>
+        <option>Computer equipment</option>
+        <option>Media equipment</option>
+      </select>
+    </div>
+
+    <div class="form_register_list">
+      <label>Location</label>
+      <span class="input location"><i class="location options" th:field="*{location}"></i></span>
+      <select name="location" class="input location">
+        <option value=" ">Select your location</option>
+        <option>Jorge Alvarez Lleras Library</option>
+        <option>G Building Library</option>
+      </select>
+    </div>
+
+    <div class="form_register">
+    <p>
+      <label>Availability hours</label>
+    </p>
+      <label>Start time</label>
+      <input type="time" th:field="*{start_time}">
+      <label>End time</label>
+      <input type="time" th:field="*{end_time}">
+    </div>
+    <input type="submit" value="Add resource">
+  </form>
+</div>
+</body>
+</html>
