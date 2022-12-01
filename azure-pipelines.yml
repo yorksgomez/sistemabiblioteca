@@ -37,7 +37,7 @@ stages:
         mavenAuthenticateFeed: false
         effectivePomSkip: false
         sqMavenPluginVersionChoice: 'latest'
-    - task: SonarCloudAnalyze@1
+        sonarQubeRunAnalysis: true
     - task: SonarCloudPublish@1
       inputs:
         pollingTimeoutSec: '300'
