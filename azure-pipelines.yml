@@ -16,6 +16,17 @@ stages:
   - job: Build
     displayName: Build Maven Project
     steps:
+    - task: SonarCloudPrepare@1
+      inputs:
+        SonarCloud: 'sonar'
+        organization: 'yorksgomez'
+        scannerMode: 'Other'
+        extraProperties: |
+          # Additional properties that will be passed to the scanner,
+          # Put one key=value per line, example:
+          # sonar.exclusions=**/*.bin
+          sonar.projectKey=yorksgomez_Sistema-Biblioteca-SCRUM
+          sonar.projectName=Sistema Biblioteca SCRUM
     - task: Maven@4
       inputs:
         mavenPomFile: 'pom.xml'
@@ -26,6 +37,10 @@ stages:
         mavenAuthenticateFeed: false
         effectivePomSkip: false
         sqMavenPluginVersionChoice: 'latest'
+    - task: SonarCloudAnalyze@1
+    - task: SonarCloudPublish@1
+      inputs:
+        pollingTimeoutSec: '300'
     - task: CopyFiles@2
       displayName: 'Copy Files to artifact staging directory'
       inputs:
