@@ -36,6 +36,15 @@ public class LibraryResource {
         this.availability = "";
     }
 
+    public LibraryResource(Long id, String name, String location, String type, Integer capacity, String availability) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.type = type;
+        this.capacity = capacity;
+        this.availability = availability;
+    }
+
     public Long getId() {
         return id;
     }
