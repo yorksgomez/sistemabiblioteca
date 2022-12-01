@@ -10,7 +10,7 @@
 <body>
 <div class="registerResource_form">
   <h1>Register Resource</h1>
-  <form method="post" th:action="@{/process_register_resource}" th:object="${administrator}">
+  <form method="post" th:action="@{/addResource}" th:object="${newResource}">
     <div class="form_register">
       <label>Name</label>
       <input type="text" th:field="*{name}" required placeholder="Enter resource name">
@@ -47,9 +47,11 @@
       <label>Availability hours</label>
     </p>
       <label>Start time</label>
-      <input type="time" th:field="*{start_time}">
+      <!--th:field="*{start_time}"-->
+      <input type="time">
       <label>End time</label>
-      <input type="time" th:field="*{end_time}">
+      <!-- th:field="*{end_time} -->
+      <input type="time">
     </div>
     <input type="submit" value="Add resource">
   </form>

@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "book")
-public class Book implements Models {
+public class BookDTO implements Models {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -17,10 +17,10 @@ public class Book implements Models {
     @Column(name = "title")
     private String title;
 
-    public Book() {
+    public BookDTO() {
     }
 
-    public Book(Integer id, String author, String title) {
+    public BookDTO(Integer id, String author, String title) {
         this.id = id;
         this.author = author;
         this.title = title;

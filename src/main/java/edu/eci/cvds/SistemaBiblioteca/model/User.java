@@ -9,11 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class  User implements Models {
+public class UserDTO implements Models {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
 
     @Column(nullable = false, unique = true)
     private String mail;
@@ -27,14 +27,14 @@ public class  User implements Models {
     @Column(nullable = false)
     private String role;
 
-    public User() {
+    public UserDTO() {
         this.mail = "";
         this.name = "";
         this.password = "";
         this.role = "";
     }
 
-    public User( String mail, String name, String password, String role) {
+    public UserDTO(String mail, String name, String password, String role) {
         this.mail = mail;
         this.name = name;
         this.password = password;

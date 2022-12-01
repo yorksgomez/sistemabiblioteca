@@ -1,5 +1,6 @@
 package edu.eci.cvds.sistemabiblioteca.repository.impl;
 
+import com.mysql.cj.exceptions.WrongArgumentException;
 import edu.eci.cvds.sistemabiblioteca.model.LibraryResource;
 
 import javax.persistence.EntityManager;
@@ -37,7 +38,7 @@ public class ResourceRepositoryImpl {
                     predicates.add(cb.equal(root.get(field), value));
                     break;
                 default:
-                    System.out.println("Error");
+                    throw new WrongArgumentException("Filter not found");
             }
 
         });
