@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:href="@{/styles/resources.css}" rel="stylesheet">
+    <script th:src="@{/scripts/resources.js}" type="text/javascript"></script>
     <title>Resource</title>
 </head>
 <body>
@@ -15,11 +16,9 @@
             <li><a href="#">Another Resources</a></li>
         </ul>
     </header>
-
-    <br>
     <div class="wrap">
         <div class="search">
-            <input type="text" class="searchTerm" placeholder="What are you looking for?">
+            <input type="text" class="searchTerm" id="searchTerm" placeholder="What are you looking for?">
             <button type="submit" class="searchButton" onclick="doSearch()" >
                 Go
                 <i class="fa fa-search"></i>
@@ -48,45 +47,5 @@
             </table>
         </div>
     </form>
-    <script>
-        function doSearch() {
-            var tableReg = document.getElementById('regTable');
-            var searchText = document.getElementById('searchTerm').value.toLowerCase();
-            for (var i = 1; i < tableReg.rows.length; i++) {
-                var cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-                var found = false;
-                for (var j = 0; j < cellsOfRow.length && !found; j++) {
-                    var compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-                    if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1)) {
-                        found = true;
-                    }
-                }
-                if (found) {
-                    tableReg.rows[i].style.display = '';
-                } else {
-                    tableReg.rows[i].style.display = 'none';
-                }
-            }
-        }
-    </script>
-    <script>
-        function sortTable(table, col, reverse) {
-            var tb = table.tBodies[0], // use `<tbody>` to ignore `<thead>` and `<tfoot>` rows
-                tr = Array.prototype.slice.call(tb.rows, 0), // put rows into array
-                i;
-            reverse = -((+reverse) || -1);
-            tr = tr.sort(function (a, b) { // sort rows
-                return reverse // `-1 *` if want opposite order
-                    * (a.cells[col].textContent.trim() // using `.textContent.trim()` for test
-                            .localeCompare(b.cells[col].textContent.trim(), undefined, {numeric: true})
-                    );
-            });
-            for(i = 0; i < tr.length; ++i) {
-                tb.appendChild(tr[i]); // append each row in order
-
-            }
-        }
-    </script>
-
 </body>
 </html>
