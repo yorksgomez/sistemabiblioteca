@@ -40,8 +40,12 @@ public class ResourceServiceImpl implements ResourceService {
         }
         return data;
     }
+
+
     @Override
     public void createResource(Long id, String name, String location, String type, Integer capacity, String availability){
         resourceRepository.save(new LibraryResource(id,name,location,type,capacity,availability));
     }
+
+
 }
