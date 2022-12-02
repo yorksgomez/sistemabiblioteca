@@ -47,11 +47,9 @@
       <label>Availability hours</label>
     </p>
       <label>Start time</label>
-      <!--th:field="*{start_time}"-->
-      <input type="time">
+      <input type="time" th:field="*{startTime}">
       <label>End time</label>
-      <!-- th:field="*{end_time} -->
-      <input type="time">
+      <input type="time" th:field="*{endTime}">
     </div>
     <input type="submit" value="Add resource">
   </form>

@@ -4,6 +4,7 @@ import edu.eci.cvds.sistemabiblioteca.model.interfaces.Models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalTime;
 
 class MyKey implements Serializable{
     private Long id;
@@ -63,21 +64,31 @@ public class LibraryResource implements Models {
     @Column
     private String availability;
 
+    @Column
+    private LocalTime startTime;
+
+    @Column
+    private LocalTime endTime;
+
     public LibraryResource() {
         this.name = "";
         this.location = "";
         this.type = "";
         this.capacity = -1;
         this.availability = "";
+        this.startTime = LocalTime.of(0,0);
+        this.endTime = LocalTime.of(0,0);
     }
 
-    public LibraryResource(Long id, String name, String location, String type, Integer capacity, String availability) {
+    public LibraryResource(Long id, String name, String location, String type, Integer capacity, String availability, LocalTime startTime, LocalTime endTime) {
         this.id = id;
         this.name = name;
         this.location = location;
         this.type = type;
         this.capacity = capacity;
         this.availability = availability;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     public Long getId() {
@@ -126,5 +137,21 @@ public class LibraryResource implements Models {
 
     public void setAvailability(String availability) {
         this.availability = availability;
+    }
+
+    public LocalTime getStartTime(){
+        return startTime;
+    }
+
+    public void setStartTime(LocalTime startTime){
+        this.startTime = startTime;
+    }
+
+    public LocalTime getEndTime(){
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
     }
 }
