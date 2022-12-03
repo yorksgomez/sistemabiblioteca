@@ -33,7 +33,7 @@ public class ResourceController {
         return resourceService.findResource(libraryResource);
     }
 
-    @GetMapping("/addResource")
+    @GetMapping("/viewAddResource")
     public String viewAddResource(Model model){
         model.addAttribute("newResource", ModelFactory.getModel(ModelEnum.LIBRARY_RESOURCE));
         return "registerResource";
