@@ -1,25 +1,15 @@
 package edu.eci.cvds.sistemabiblioteca.model;
-<<<<<<< HEAD
-=======
 import edu.eci.cvds.sistemabiblioteca.model.interfaces.Models;
 
->>>>>>> Develop
 import javax.persistence.*;
 
 
 @Entity
 @Table(name = "book")
-<<<<<<< HEAD
-public class Book{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-=======
 public class Book implements Models {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
->>>>>>> Develop
 
     @Column(name = "author")
     private String author;
@@ -27,26 +17,11 @@ public class Book implements Models {
     @Column(name = "title")
     private String title;
 
-<<<<<<< HEAD
-    public Book() {
-    }
-
-    public Book(Integer id, String author, String title) {
-        this.id = id;
-=======
     public Book(String author, String title) {
->>>>>>> Develop
         this.author = author;
         this.title = title;
     }
 
-<<<<<<< HEAD
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-=======
     public Book() {
         this("", "");
     }
@@ -56,7 +31,6 @@ public class Book implements Models {
     }
 
     public void setId(Long id) {
->>>>>>> Develop
         this.id = id;
     }
 

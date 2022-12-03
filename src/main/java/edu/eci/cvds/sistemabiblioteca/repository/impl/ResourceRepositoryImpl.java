@@ -1,9 +1,5 @@
 package edu.eci.cvds.sistemabiblioteca.repository.impl;
 
-<<<<<<< HEAD
-import edu.eci.cvds.sistemabiblioteca.model.LibraryResource;
-
-=======
 import com.mysql.cj.exceptions.WrongArgumentException;
 import edu.eci.cvds.sistemabiblioteca.model.LibraryResource;
 import edu.eci.cvds.sistemabiblioteca.repository.ResourceRepository;
@@ -12,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
->>>>>>> Develop
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -28,14 +23,11 @@ public class ResourceRepositoryImpl {
     @PersistenceContext
     private EntityManager entityManager;
 
-<<<<<<< HEAD
-=======
 
     ResourceRepository resourceRepository;
 
     public List<LibraryResource> getAllResources() {return resourceRepository.findAll();}
 
->>>>>>> Develop
     public List<LibraryResource> getData(HashMap<String, Object> conditions)
     {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
@@ -56,11 +48,7 @@ public class ResourceRepositoryImpl {
                     predicates.add(cb.equal(root.get(field), value));
                     break;
                 default:
-<<<<<<< HEAD
-                    System.out.println("Error");
-=======
                     throw new WrongArgumentException("Filter not found");
->>>>>>> Develop
             }
 
         });

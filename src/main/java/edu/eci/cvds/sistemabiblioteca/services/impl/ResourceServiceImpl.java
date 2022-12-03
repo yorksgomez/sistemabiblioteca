@@ -6,10 +6,7 @@ import edu.eci.cvds.sistemabiblioteca.services.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
-=======
 import java.time.LocalTime;
->>>>>>> Develop
 import java.util.HashMap;
 import java.util.List;
 
@@ -44,12 +41,6 @@ public class ResourceServiceImpl implements ResourceService {
         }
         return data;
     }
-<<<<<<< HEAD
-    @Override
-    public void createResource(Long id, String name, String location, String type, Integer capacity, String availability){
-        resourceRepository.save(new LibraryResource(id,name,location,type,capacity,availability));
-    }
-=======
 
     @Override
     public LibraryResource createResource(LibraryResource newLibraryResource){
@@ -59,5 +50,4 @@ public class ResourceServiceImpl implements ResourceService {
     @Override
     public List<LibraryResource> getAllResources() {return resourceRepository.findAll();}
 
->>>>>>> Develop
 }

@@ -1,9 +1,6 @@
 package edu.eci.cvds.sistemabiblioteca.model;
-<<<<<<< HEAD
-=======
 
 import edu.eci.cvds.sistemabiblioteca.model.interfaces.Models;
->>>>>>> Develop
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

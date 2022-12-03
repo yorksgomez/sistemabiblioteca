@@ -1,12 +1,8 @@
 package edu.eci.cvds.sistemabiblioteca.controller;
 
-<<<<<<< HEAD
-import edu.eci.cvds.sistemabiblioteca.model.User;
-=======
 import edu.eci.cvds.sistemabiblioteca.factories.ModelFactory;
 import edu.eci.cvds.sistemabiblioteca.model.User;
 import edu.eci.cvds.sistemabiblioteca.model.enums.ModelEnum;
->>>>>>> Develop
 import edu.eci.cvds.sistemabiblioteca.services.impl.UserServiceImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
