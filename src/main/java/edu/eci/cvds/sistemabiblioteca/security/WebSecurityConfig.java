@@ -43,7 +43,11 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
+<<<<<<< HEAD
             .antMatchers("/library/*").authenticated()
+=======
+            .antMatchers("/").authenticated()
+>>>>>>> Develop
             .anyRequest().permitAll()
             .and()
             .formLogin()
@@ -52,7 +56,11 @@ public class WebSecurityConfig {
                 .defaultSuccessUrl("/resource")
                 .permitAll()
             .and()
+<<<<<<< HEAD
             .logout().logoutSuccessUrl("/login").permitAll();
+=======
+            .logout().logoutUrl("logout").logoutSuccessUrl("/login").permitAll();
+>>>>>>> Develop
 
         return http.build();
     }

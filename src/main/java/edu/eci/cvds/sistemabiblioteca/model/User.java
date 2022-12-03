@@ -1,4 +1,9 @@
 package edu.eci.cvds.sistemabiblioteca.model;
+<<<<<<< HEAD
+=======
+
+import edu.eci.cvds.sistemabiblioteca.model.interfaces.Models;
+>>>>>>> Develop
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,11 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class  User  {
+public class User implements Models {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false, unique = true)
     private String mail;
@@ -32,7 +37,7 @@ public class  User  {
         this.role = "";
     }
 
-    public User( String mail, String name, String password, String role) {
+    public User(String mail, String name, String password, String role) {
         this.mail = mail;
         this.name = name;
         this.password = password;
@@ -64,11 +69,11 @@ public class  User  {
         this.password = password;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

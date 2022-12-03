@@ -1,24 +1,21 @@
 package edu.eci.cvds.sistemabiblioteca.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Calendar;
-import java.util.Date;
+import edu.eci.cvds.sistemabiblioteca.model.interfaces.Models;
+
+import javax.persistence.*;
+import java.time.LocalTime;
 
 @Entity
-public class LibraryResource {
+public class LibraryResource implements Models {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
     private String name;
 
-    @Column
+    @Column()
     private String location;
 
     @Column
@@ -30,21 +27,30 @@ public class LibraryResource {
     @Column
     private String availability;
 
+    @Column
+    private LocalTime startTime;
+
+    @Column
+    private LocalTime endTime;
+
     public LibraryResource() {
         this.name = "";
         this.location = "";
         this.type = "";
         this.capacity = -1;
         this.availability = "";
+        this.startTime = LocalTime.of(0,0);
+        this.endTime = LocalTime.of(0,0);
     }
 
-    public LibraryResource(Long id, String name, String location, String type, Integer capacity, String availability) {
-        this.id = id;
+    public LibraryResource(String name, String location, String type, Integer capacity, String availability, LocalTime startTime, LocalTime endTime) {
         this.name = name;
         this.location = location;
         this.type = type;
         this.capacity = capacity;
         this.availability = availability;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     public Long getId() {
@@ -93,5 +99,21 @@ public class LibraryResource {
 
     public void setAvailability(String availability) {
         this.availability = availability;
+    }
+
+    public LocalTime getStartTime(){
+        return startTime;
+    }
+
+    public void setStartTime(LocalTime startTime){
+        this.startTime = startTime;
+    }
+
+    public LocalTime getEndTime(){
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
     }
 }

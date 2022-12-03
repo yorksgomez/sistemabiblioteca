@@ -1,6 +1,8 @@
 package edu.eci.cvds.sistemabiblioteca.controller;
 
+import edu.eci.cvds.sistemabiblioteca.factories.ModelFactory;
 import edu.eci.cvds.sistemabiblioteca.model.LibraryResource;
+import edu.eci.cvds.sistemabiblioteca.model.enums.ModelEnum;
 import edu.eci.cvds.sistemabiblioteca.services.impl.BookServiceImpl;
 import edu.eci.cvds.sistemabiblioteca.services.impl.ResourceServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,7 @@ public class ResourceController {
 
     @GetMapping("/resource")
     public String viewResource(Model model){
-        model.addAttribute("resource", new LibraryResource());
-        model.addAttribute("booksList", bookService.getAllBooks());
+        model.addAttribute("resource", resourceService.getAllResources());
         return "resource";
     }
     @PostMapping("/getResource")
@@ -32,10 +33,20 @@ public class ResourceController {
         return resourceService.findResource(libraryResource);
     }
 
-    // @GetMapping()
-    // public String viewAddResource(Model model){
-    //    model.addAttribute("newResource", new LibraryResource());
-    //    return "";
-    //}
+    @GetMapping("/viewAddResource")
+    public String viewAddResource(Model model){
+        model.addAttribute("newResource", ModelFactory.getModel(ModelEnum.LIBRARY_RESOURCE));
+        return "registerResource";
+    }
+    @PostMapping("/addResource")
+    public String addResource(LibraryResource newResource) {
+        resourceService.createResource(newResource);
+        return "redirect:/resource";
+    }
+    @GetMapping("/viewResource")
+    public String resourceView(Model model){
+        model.addAttribute("resourceList", resourceService.getAllResources());
+        return "resource";
+    }
 
 }

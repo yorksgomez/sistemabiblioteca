@@ -1,6 +1,12 @@
 package edu.eci.cvds.sistemabiblioteca.controller;
 
+<<<<<<< HEAD
 import edu.eci.cvds.sistemabiblioteca.model.User;
+=======
+import edu.eci.cvds.sistemabiblioteca.factories.ModelFactory;
+import edu.eci.cvds.sistemabiblioteca.model.User;
+import edu.eci.cvds.sistemabiblioteca.model.enums.ModelEnum;
+>>>>>>> Develop
 import edu.eci.cvds.sistemabiblioteca.services.impl.UserServiceImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,13 +25,13 @@ public class UserController {
 
     @GetMapping("/login")
     public String loginView(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", ModelFactory.getModel(ModelEnum.USER));
         return "login";
     }
 
     @GetMapping("/register")
     public String registerView(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", ModelFactory.getModel(ModelEnum.USER));
         return "register";
     }
 
