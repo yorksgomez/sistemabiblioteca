@@ -46,4 +46,8 @@ public class ResourceServiceImpl implements ResourceService {
     public LibraryResource createResource(LibraryResource newLibraryResource){
         return resourceRepository.save(newLibraryResource);
     }
+
+    @Override
+    public List<LibraryResource> getAllResources() {return resourceRepository.findAll();}
+
 }

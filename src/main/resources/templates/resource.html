@@ -30,22 +30,27 @@
             </button>
         </div>
     </div>
-    <form th:action="@{getResource}" method="post" th:object="${resource}">
+    <form th:action="@{viewResource}" method="get" th:object="${resource}">
 
         <div class="table-wrapper">
             <table class="fl-table" id="regTable">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Author</th>
-                    <th>Title</th>
+                    <th>Availability</th>
+                    <th>Capacity</th>
+                    <th>Location</th>
+                    <th>Name</th>
+                    <th>Type</th>
                 </tr>
                 <tbody>
-
-                <tr th:each="book:${booksList}">
-                    <td th:text="${book.id}">${resource.id}</td>
-                    <td th:text="${book.author}">${resource.name}</td>
-                    <td th:text="${book.title}">${resource.type}</td>
+                <tr th:each="resource:${resourceList}">
+                    <td th:text="${resource.id}">${resource.id}</td>
+                    <td th:text="${resource.availability}">${resource.availability}</td>
+                    <td th:text="${resource.capacity}">${resource.capacity}</td>
+                    <td th:text="${resource.location}">${resource.location}</td>
+                    <td th:text="${resource.name}">${resource.name}</td>
+                    <td th:text="${resource.type}">${resource.type}</td>
                 </tr>
                 </tbody>
                 </thead>

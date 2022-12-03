@@ -8,4 +8,5 @@ import java.util.List;
 public interface ResourceService {
     List<LibraryResource> findResource(LibraryResource libraryResourceSearched);
     LibraryResource createResource(LibraryResource newLibraryResource);
+    List<LibraryResource> getAllResources();
 }

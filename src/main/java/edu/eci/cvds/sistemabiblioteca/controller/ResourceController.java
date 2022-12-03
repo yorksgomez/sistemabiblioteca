@@ -39,5 +39,11 @@ public class ResourceController {
         model.addAttribute("newResource", ModelFactory.getModel(ModelEnum.LIBRARY_RESOURCE));
         return "registerResource";
     }
+    @GetMapping("/viewResource")
+    public String resourceView(Model model){
+        model.addAttribute("resourceList", resourceService.getAllResources());
+        return "resource";
+    }
+
 
 }

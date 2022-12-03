@@ -17,6 +17,8 @@ public class ResourceRepositoryImpl {
 
     @PersistenceContext
     private EntityManager entityManager;
+    @Override
+    public List<LibraryResource> getAllResources() {return resourceRepository.findAll();}
 
     public List<LibraryResource> getData(HashMap<String, Object> conditions)
     {
