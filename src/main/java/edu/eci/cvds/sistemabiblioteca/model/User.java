@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class  User implements Models {
+public class User implements Models {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,7 +34,7 @@ public class  User implements Models {
         this.role = "";
     }
 
-    public User( String mail, String name, String password, String role) {
+    public User(String mail, String name, String password, String role) {
         this.mail = mail;
         this.name = name;
         this.password = password;
