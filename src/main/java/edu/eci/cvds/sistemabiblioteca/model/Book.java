@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "book")
 public class Book implements Models {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "author")

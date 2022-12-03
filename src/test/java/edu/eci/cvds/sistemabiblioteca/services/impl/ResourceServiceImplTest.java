@@ -34,8 +34,7 @@ class ResourceServiceImplTest {
         autoCloseable = MockitoAnnotations.openMocks(this);
 
         // Library Resource to Test
-        libraryResourceTest = new LibraryResource("S.E 203", "biblioteca", "sala de estudio", 4, "available",
-                LocalTime.of(7,0), LocalTime.of(17, 45));
+        libraryResourceTest = new LibraryResource("S.E 203", "biblioteca", "sala de estudio", 4, "available", LocalTime.of(7,0), LocalTime.of(17, 45));
     }
 
     @AfterEach

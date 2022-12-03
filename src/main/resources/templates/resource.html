@@ -12,8 +12,13 @@
     <header class="header">
         <h1 class="logo"><a href="#">Resources</a></h1>
         <ul class="main-nav">
-            <li><a href="#">Books</a></li>
-            <li><a href="#">Another Resources</a></li>
+            <li><a href="/resource">Resources</a></li>
+            <li><a href="/addResource">Add Resources</a></li>
+            <li>
+                <form th:action="@{/logout}" method="POST" id="logout">
+                    <a onclick="document.getElementById('logout').submit()">Logout</a>
+                </form>
+            </li>
         </ul>
     </header>
     <div class="wrap">

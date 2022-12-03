@@ -52,7 +52,7 @@ public class WebSecurityConfig {
                 .defaultSuccessUrl("/resource")
                 .permitAll()
             .and()
-            .logout().logoutSuccessUrl("/login").permitAll();
+            .logout().logoutUrl("logout").logoutSuccessUrl("/login").permitAll();
 
         return http.build();
     }

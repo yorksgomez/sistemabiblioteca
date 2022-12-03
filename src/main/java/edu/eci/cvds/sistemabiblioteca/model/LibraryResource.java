@@ -3,14 +3,13 @@ package edu.eci.cvds.sistemabiblioteca.model;
 import edu.eci.cvds.sistemabiblioteca.model.interfaces.Models;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalTime;
 
 @Entity
 public class LibraryResource implements Models {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
