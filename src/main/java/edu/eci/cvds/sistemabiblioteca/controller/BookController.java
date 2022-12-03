@@ -5,20 +5,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
-
-
 @Controller
 
 public class BookController {
     @Autowired
     private BookServiceImpl bookService;
 
-    @GetMapping("/v1/resource")
+    @GetMapping("/book")
     public String bookView(Model model){
         model.addAttribute("books", bookService.getAllBooks());
-        return "resource";
+        return "book";
     }
-
-
 }

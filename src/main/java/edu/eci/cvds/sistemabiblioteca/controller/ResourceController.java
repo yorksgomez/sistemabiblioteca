@@ -25,8 +25,7 @@ public class ResourceController {
 
     @GetMapping("/resource")
     public String viewResource(Model model){
-        model.addAttribute("resource", ModelFactory.getModel(ModelEnum.LIBRARY_RESOURCE));
-        model.addAttribute("booksList", bookService.getAllBooks());
+        model.addAttribute("resource", resourceService.getAllResources());
         return "resource";
     }
     @PostMapping("/getResource")
@@ -39,11 +38,4 @@ public class ResourceController {
         model.addAttribute("newResource", ModelFactory.getModel(ModelEnum.LIBRARY_RESOURCE));
         return "registerResource";
     }
-    @GetMapping("/viewResource")
-    public String resourceView(Model model){
-        model.addAttribute("resourceList", resourceService.getAllResources());
-        return "resource";
-    }
-
-
 }

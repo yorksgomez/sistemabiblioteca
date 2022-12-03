@@ -79,4 +79,18 @@ class ResourceServiceImplTest {
         Assertions.assertNotNull(result);
         Assertions.assertEquals(libraryResourceTest.getLocation(), result.getLocation());
     }
+
+    @Test
+    void getAllResources() {
+        // Expected List
+        List<LibraryResource> libraryResourceList = new ArrayList<>();
+        libraryResourceList.add(libraryResourceTest);
+
+        when(resourceRepository.findAll()).thenReturn(libraryResourceList);
+
+        List<LibraryResource> result = resourceService.getAllResources();
+
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(libraryResourceList.get(0), result.get(0));
+    }
 }

@@ -43,7 +43,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-            .antMatchers("/library/*").authenticated()
+            .antMatchers("/").authenticated()
             .anyRequest().permitAll()
             .and()
             .formLogin()

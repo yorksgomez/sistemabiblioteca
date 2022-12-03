@@ -13,9 +13,9 @@
         <h1 class="logo"><a href="#">Resources</a></h1>
         <ul class="main-nav">
             <li><a href="/resource">Resources</a></li>
-            <li><a href="/addResource">Add Resources</a></li>
+            <li><a href="/viewAddResource">Add Resources</a></li>
             <li>
-                <form th:action="@{/logout}" method="POST" id="logout">
+                <form th:action="@{/login}" method="POST" id="logout">
                     <a onclick="document.getElementById('logout').submit()">Logout</a>
                 </form>
             </li>
@@ -30,32 +30,32 @@
             </button>
         </div>
     </div>
-    <form th:action="@{/viewResource}" method="get" th:object="${resource}">
+    <form th:action="@{/resource}" method="get" th:object="${resource}">
 
         <div class="table-wrapper">
             <table class="fl-table" id="regTable">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Availability</th>
-                    <th>Capacity</th>
-                    <th>Location</th>
                     <th>Name</th>
+                    <th>Location</th>
                     <th>Type</th>
+                    <th>Capacity</th>
+                    <th>Availability</th>
                     <th>Start</th>
                     <th>End</th>
 
                 </tr>
                 <tbody>
-                <tr th:each="resource:${resourceList}">
+                <tr th:each="resource:${resource}">
                     <td th:text="${resource.id}">${resource.id}</td>
                     <td th:text="${resource.availability}">${resource.availability}</td>
                     <td th:text="${resource.capacity}">${resource.capacity}</td>
                     <td th:text="${resource.location}">${resource.location}</td>
                     <td th:text="${resource.name}">${resource.name}</td>
                     <td th:text="${resource.type}">${resource.type}</td>
-                    <td th:text="${resource.start_time}">${resource.start_time}</td>
-                    <td th:text="${resource.end_time}">${resource.end_time}</td>
+                    <td th:text="${resource.startTime}">${resource.startTime}</td>
+                    <td th:text="${resource.endTime}">${resource.endTime}</td>
                 </tr>
                 </tbody>
                 </thead>
