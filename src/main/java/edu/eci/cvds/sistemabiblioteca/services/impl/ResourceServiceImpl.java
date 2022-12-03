@@ -42,11 +42,8 @@ public class ResourceServiceImpl implements ResourceService {
         return data;
     }
 
-
     @Override
-    public void createResource(Long id, String name, String location, String type, Integer capacity, String availability, LocalTime startTime, LocalTime endTime){
-        resourceRepository.save(new LibraryResource(id,name,location,type,capacity,availability, startTime, endTime));
+    public LibraryResource createResource(LibraryResource newLibraryResource){
+        return resourceRepository.save(newLibraryResource);
     }
-
-
 }
