@@ -2,7 +2,10 @@ package edu.eci.cvds.sistemabiblioteca.repository.impl;
 
 import com.mysql.cj.exceptions.WrongArgumentException;
 import edu.eci.cvds.sistemabiblioteca.model.LibraryResource;
+import edu.eci.cvds.sistemabiblioteca.repository.ResourceRepository;
+import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -17,8 +20,10 @@ public class ResourceRepositoryImpl {
 
     @PersistenceContext
     private EntityManager entityManager;
-    @Override
-    public List<LibraryResource> getAllResources() {return resourceRepository.findAll();}
+
+    ResourceRepository resourceRepository;
+
+    public List<LibraryResource> getAllResource() {return resourceRepository.findAll();}
 
     public List<LibraryResource> getData(HashMap<String, Object> conditions)
     {

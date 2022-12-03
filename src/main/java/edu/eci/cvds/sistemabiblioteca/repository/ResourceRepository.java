@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface ResourceRepository extends JpaRepository<LibraryResource, Long> {
     public List<LibraryResource> getData(HashMap<String, Object> resourceSearched);
+    public List<LibraryResource> getAllResources();
 }
