@@ -38,4 +38,15 @@ public class ResourceController {
         model.addAttribute("newResource", ModelFactory.getModel(ModelEnum.LIBRARY_RESOURCE));
         return "registerResource";
     }
+    @PostMapping("/addResource")
+    public String addResource(LibraryResource newResource) {
+        resourceService.createResource(newResource);
+        return "redirect:/resource";
+    }
+    @GetMapping("/viewResource")
+    public String resourceView(Model model){
+        model.addAttribute("resourceList", resourceService.getAllResources());
+        return "resource";
+    }
+
 }

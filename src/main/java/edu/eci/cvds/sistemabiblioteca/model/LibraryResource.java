@@ -15,7 +15,7 @@ public class LibraryResource implements Models {
     @Column(unique = true)
     private String name;
 
-    @Column(unique = true)
+    @Column()
     private String location;
 
     @Column
