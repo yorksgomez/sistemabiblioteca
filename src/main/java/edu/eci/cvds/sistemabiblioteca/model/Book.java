@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Book implements Models {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
 
     @Column(name = "author")
     private String author;
@@ -17,20 +17,20 @@ public class Book implements Models {
     @Column(name = "title")
     private String title;
 
-    public Book() {
-    }
-
-    public Book(Integer id, String author, String title) {
-        this.id = id;
+    public Book(String author, String title) {
         this.author = author;
         this.title = title;
     }
 
-    public Integer getId() {
+    public Book() {
+        this("", "");
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

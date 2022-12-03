@@ -44,8 +44,7 @@ public class LibraryResource implements Models {
         this.endTime = LocalTime.of(0,0);
     }
 
-    public LibraryResource(Long id, String name, String location, String type, Integer capacity, String availability, LocalTime startTime, LocalTime endTime) {
-        this.id = id;
+    public LibraryResource(String name, String location, String type, Integer capacity, String availability, LocalTime startTime, LocalTime endTime) {
         this.name = name;
         this.location = location;
         this.type = type;

@@ -48,7 +48,7 @@ class ResourceServiceImplTest {
      * returns a list with LibraryResource objects having the same name.
      */
     @Test
-    void given_LibraryResourceSearched_When_HasOnlyName_Then_ReturnListOfLibraryResource() {
+    void given_findResource_When_LibraryResourceSearchedHasOnlyName_Then_ReturnListOfLibraryResource() {
         // HashMAp Filters
         HashMap<String, Object> hashMapFilters = new HashMap<>();
         hashMapFilters.put("name", "S.E 203");
@@ -73,7 +73,7 @@ class ResourceServiceImplTest {
      * given a LibraryResource to add, returns the LibraryResource
      */
     @Test
-    void given_LibraryResourceToAdd_Then_ReturnLibraryResource() {
+    void given_LibraryResourceToAdd_When_createResource_Then_ReturnLibraryResource() {
         when(resourceRepository.save(libraryResourceTest)).thenReturn(libraryResourceTest);
         LibraryResource result = resourceService.createResource(libraryResourceTest);
 
